@@ -8,6 +8,10 @@ fi
 
 # Prompt for the username
 read -p "Enter the username for the new user: " username
+if id "$username" &>/dev/null; then
+    echo "User $username already exists."
+    exit 1
+fi
 
 # Repeated password entry
 while true; do
